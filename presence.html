@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <title>Groupe LÉA</title>
+</head>
+<body>
+
+<!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html" class="active" data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html" data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+
+.cta-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top:10px;
+    }
+    .btne{
+      margin-left: 600px;
+      background:var(--accent);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition: all 0.25s ease;
+      margin-bottom: 15px;
+    }
+  
+
+  .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+}
+  
+
+
+/* =====================================
+🔥 NAVBAR RESPONSIVE FIX
+===================================== */
+
+.burger{
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2000;
+}
+
+@media (max-width: 768px) {
+
+  /* ===== GLOBAL ===== */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR / BURGER FIX ===== */
+  .navbar .container {
+    justify-content: space-between;
+  }
+
+  .burger {
+    display: block;
+    font-size: 28px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+    color: white;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    text-align: center;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 50vh;
+    padding: 30px 15px;
+    margin-top: 70px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ===== SECTION TITRE ===== */
+  .presence-title h2 {
+    font-size: 22px;
+  }
+
+  .presence-title p {
+    font-size: 13px;
+  }
+
+  /* ===== GRID ===== */
+  .country-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ===== CARD ===== */
+  .country-card {
+    height: 280px;
+  }
+
+  .overlay h3 {
+    font-size: 18px;
+  }
+
+  .overlay p {
+    font-size: 13px;
+  }
+
+  /* ===== BUTTON ===== */
+  .btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  /* ===== IMAGE ===== */
+  .country-card img {
+    object-fit: cover;
+  }
+
+}
+/* =========================
+RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Roboto',sans-serif;
+  background:#0f0f0f;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+  width:100%;
+  min-height:60vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+  url('afrique.jpg');
+
+  background-size:cover;
+  background-position:center;
+  margin-top:60px ;
+}
+
+.hero-content{
+  max-width:850px;
+  animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+  font-size:4rem;
+  color:#f2a900;
+  margin-bottom:20px;
+  font-family:'Montserrat',sans-serif;
+}
+
+.hero-content p{
+  font-size:1.2rem;
+  line-height:1.8;
+  color:#ddd;
+}
+
+/* =========================
+SECTION
+========================= */
+
+.presence{
+  padding:80px 8%;
+}
+
+.presence-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.presence-title h2{
+  font-size:3rem;
+  color:#f2a900;
+  margin-bottom:10px;
+}
+
+.presence-title p{
+  color:#aaa;
+  font-size:1rem;
+}
+
+/* =========================
+GRID
+========================= */
+
+.country-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+/* =========================
+CARD
+========================= */
+
+.country-card{
+  position:relative;
+  height:400px;
+  overflow:hidden;
+  border-radius:25px;
+  cursor:pointer;
+  transition:0.4s ease;
+
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.country-card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.country-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s ease;
+}
+
+.country-card:hover img{
+  transform:scale(1.1);
+}
+
+.country-card:hover{
+  transform:translateY(-10px);
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+  to top,
+  rgba(0,0,0,0.95),
+  rgba(0,0,0,0.2)
+  );
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:25px;
+}
+
+.overlay h3{
+  font-size:2rem;
+  margin-bottom:10px;
+  color:white;
+}
+
+.overlay p{
+  color:#ddd;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.btn{
+  width:max-content;
+
+  background:#f2a900;
+  color:black;
+
+  padding:12px 22px;
+  border-radius:10px;
+
+  text-decoration:none;
+  font-weight:bold;
+
+  transition:0.3s ease;
+}
+
+.btn:hover{
+  background:white;
+  transform:scale(1.05);
+}
+
+/* =========================
+COMING
+========================= */
+
+.coming{
+  position:absolute;
+  top:15px;
+  right:15px;
+
+  background:red;
+  color:white;
+
+  padding:8px 14px;
+  border-radius:30px;
+
+  font-size:0.8rem;
+  font-weight:bold;
+
+  z-index:10;
+}
+
+/* =========================
+ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+from{
+  opacity:0;
+  transform:translateY(50px);
+}
+
+to{
+  opacity:1;
+  transform:translateY(0);
+}
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+.hero-content h1{
+  font-size:3rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+  min-height:50vh;
+  padding:30px 15px;
+}
+
+.hero-content h1{
+  font-size:2.2rem;
+}
+
+.hero-content p{
+  font-size:1rem;
+}
+
+.presence{
+  padding:60px 5%;
+}
+
+.presence-title h2{
+  font-size:2rem;
+}
+
+.country-card{
+  height:320px;
+}
+
+.overlay h3{
+  font-size:1.5rem;
+}
+
+.overlay p{
+  font-size:0.95rem;
+}
+
+.btn{
+  padding:10px 18px;
+  font-size:0.9rem;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-content h1{
+  font-size:1.8rem;
+}
+
+.hero-content p{
+  font-size:0.95rem;
+}
+
+.country-card{
+  height:280px;
+}
+
+}
+
+</style>
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1 data-fr="Notre Présence en Afrique" data-en="Our Presence in Africa  ">
+Notre Présence en Afrique
+</h1>
+
+<p data-fr="Le Groupe LEA développe ses activités dans plusieurs pays africains
+afin d’apporter des solutions innovantes dans les domaines du Tracking GPS,
+de la Gestion de flotte, du BTP, de la Domotique et des Technologies intelligentes." data-en="The LEA Group is expanding its operations in several African countries
+in order to provide innovative solutions in the fields of GPS tracking,
+fleet management, construction, home automation and smart technologies.">
+Le Groupe LEA développe ses activités dans plusieurs pays africains
+afin d’apporter des solutions innovantes dans les domaines du Tracking GPS,
+de la Gestion de flotte, du BTP, de la Domotique et des Technologies intelligentes.
+</p>
+  
+</div>
+
+</section>
+
+<!-- =========================
+SECTION
+========================= -->
+
+<section class="presence">
+
+<div class="presence-title">
+
+<h2 data-fr="Nos Implantations" data-en="Our Locations">Nos Implantations</h2>
+
+<p data-fr="Découvrez les pays dans lesquels le Groupe LEA est présent." data-en="Discover the countries in which the LEA Group is present.">
+Découvrez les pays dans lesquels le Groupe LEA est présent.
+</p>
+
+</div>
+
+<div class="country-grid">
+
+<!-- BENIN -->
+
+<div class="country-card">
+
+<img src="benin.jpg" alt="Benin">
+
+<div class="overlay">
+
+<h3 data-fr="Bénin" data-en="Benin">Bénin</h3>
+
+<p data-fr="Pays siège du Groupe LEA avec des solutions innovantes
+de tracking GPS et gestion intelligente." data-en="Country where the LEA Group is headquartered, offering innovative GPS tracking and intelligent management solutions.">
+Pays siège du Groupe LEA avec des solutions innovantes
+de tracking GPS et gestion intelligente.
+</p>
+
+<a data-fr="Découvrir" data-en="Discover" href="benin.html" class="btn">
+Découvrir
+</a>
+
+</div>
+
+</div>
+
+<!-- COTE D'IVOIRE -->
+
+<div class="country-card">
+
+<img src="cota.jpg" alt="Côte d'Ivoire">
+
+<div class="overlay">
+
+<h3 data-fr="Côte d’Ivoire" data-en="Ivory Coast">Côte d’Ivoire</h3>
+
+<p data-fr="Développement des services technologiques et accompagnement
+des entreprises modernes." data-en="Development of technological services and support for modern businesses.">
+Développement des services technologiques et accompagnement
+des entreprises modernes.
+</p>
+
+<a  data-fr="Découvrir" data-en="Discover"href="cote.html" class="btn">
+Découvrir
+</a>
+
+</div>
+
+</div>
+
+<!-- GUINEE -->
+
+<div class="country-card">
+
+<img src="guinée.jpg" alt="Guinée">
+
+<div class="overlay">
+
+<h3 data-fr="Guinée" data-en="Guinee">Guinée</h3>
+
+<p data-fr="Expansion des solutions intelligentes et projets technologiques innovants." data-en="Expansion of smart solutions and innovative technological projects.">
+Expansion des solutions intelligentes et projets technologiques innovants.
+</p>
+
+<a data-fr="Découvrir" data-en="Discover" href="gui.html" class="btn">
+Découvrir
+</a>
+
+</div>
+
+</div>
+
+<!-- GABON -->
+
+<div class="country-card">
+
+<img src="gabon.jpg" alt="Gabon">
+
+<div class="overlay">
+
+<h3 data-fr="Gabon" data-en="Gabon">Gabon</h3>
+
+<p data-fr="Déploiement progressif des activités du Groupe LEA
+dans les secteurs technologiques et industriels." data-en="Gradual deployment of LEA Group activities
+in the technological and industrial sectors.">
+Déploiement progressif des activités du Groupe LEA
+dans les secteurs technologiques et industriels.
+</p>
+
+<a data-fr="Découvrir" data-en="Discover" href="gabon.html" class="btn">
+Découvrir
+</a>
+
+</div>
+
+</div>
+
+<!-- CONGO -->
+
+<div class="country-card">
+
+<span  data-fr="EN COURS" data-en="IN PROGRESS"class="coming">
+EN COURS
+</span>
+
+<img src="go.jpg" alt="Congo">
+
+<div class="overlay">
+
+<h3 data-fr="Congo" data-en="Congo">Congo</h3>
+
+<p data-fr="Le Groupe LEA prépare actuellement son implantation
+et le développement de ses activités au Congo." data-en="The LEA Group is currently preparing its establishment
+and the development of its activities in Congo.">
+Le Groupe LEA prépare actuellement son implantation
+et le développement de ses activités au Congo.
+</p>
+
+<a  data-fr=" Bientôt disponible" data-en="Coming soon"href="#" class="btn">
+Bientôt disponible
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p>&copy; 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+ 
+<!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+
+
+	<a href="https://wa.me/+0159088775" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" 
+       alt="Chat WhatsApp" 
+       class="whatsapp-icon">
+</a>
+
+<!-- =========================
+JS ANIMATION
+========================= -->
+
+<script>
+
+const cards = document.querySelectorAll('.country-card');
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('show');
+
+}
+
+});
+
+},{
+threshold:0.2
+});
+
+cards.forEach(card => {
+observer.observe(card);
+});
+
+</script>
+
+
+
+<script>
+
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+
+  // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    el.innerHTML = el.getAttribute(lang);
+  });
+}
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+</script>
+
+</body>
+</html>

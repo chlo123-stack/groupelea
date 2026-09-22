@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <title>Groupe LÉA</title>
+</head>
+<body>
+
+<!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+
+
+
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese"  class="active" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html" data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html"  data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+  
+
+  <div class="hero-banner-img">
+  <img src="homme-d-affaires-a-l-aide-de-son-telephone-portable.jpg" alt="Bannière Groupe LÉA" class="hero-img" />
+  <div class="hero-text">
+    <h1 data-fr="Géolocalisation et Monitoring" data-en="Geolocation and Monitoring">Géolocalisation et Monitoring</h1>
+    <p data-fr="Localisez vos véhicules en temps réel et suivez leurs déplacements grâce à la géolocalisation et au monitoring. Améliorez la sécurité, optimisez vos itinéraires et augmentez la performance de votre flotte." data-en="Locate your vehicles in real time and track their movements using geolocation and monitoring. Improve safety, optimize your routes, and increase the performance of your fleet.">Localisez vos véhicules en temps réel et suivez leurs déplacements grâce à la géolocalisation et au monitoring. Améliorez la sécurité, optimisez vos itinéraires et augmentez la performance de votre flotte.</p>
+  </div>
+</div>
+
+
+
+<!-- Même style de base que ta page BTP -->
+<style>
+
+  .hero-banner-img {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* pleine hauteur d'écran */
+  overflow: hidden;
+}
+
+.hero-banner-img img.hero-img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover; /* couvre sans déformer */
+  object-position: center;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4); /* fond semi-transparent pour lisibilité */
+  border-radius: 10px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+  /* === SERVICES === */
+    .domotique-services {
+      padding: 60px 20px;
+      background: #f9f9f9;
+    }
+    .domotique-services h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #008751;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+  /* === même galerie === */
+  .gallery {
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px; margin-top:10px;
+  }
+  .gallery img { width:100%; border-radius:10px; transition: transform .3s; }
+  .gallery img:hover { transform: scale(1.05); }
+
+
+  .btn {
+    display:inline-block; background:#008751; color:#fff; padding:10px 20px;
+    text-decoration:none; border-radius:8px; margin-top:22px; transition:background .3s;
+  }
+  .btn:hover { background:#008751; }
+
+  
+  section { padding:60px 20px; max-width:1100px; margin:auto; text-align:center; }
+  h2 { color:#008751; margin-bottom:16px; }
+  p { color:white; }
+ .g{
+  color: black;
+ }
+
+ 
+    /* === BOUTON === */
+    .domotique-btn {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .btn {
+      display: inline-block;
+      background: #008751;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #016e43;
+    }
+
+    /* =====================================
+🔥 NAVBAR RESPONSIVE FIX
+===================================== */
+
+.burger{
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2000;
+}
+
+@media screen and (max-width:768px){
+
+  body{
+    overflow-x: hidden;
+  }
+
+  .navbar{
+    padding: 15px;
+    position: relative;
+  }
+
+  .navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* LOGO */
+  .logo a{
+    gap: 8px !important;
+  }
+
+  .logo img{
+    height: 50px !important;
+  }
+
+  #logo-text{
+    font-size: 15px !important;
+
+  }
+/* BURGER */
+.burger{
+  display: block;
+  font-size: 25px;
+  position: absolute;
+  right: 100px;
+  top: 35px;
+  color: white;
+  z-index: 9999;
+}
+
+  /* MENU */
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    background: #000;
+
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.nav-active{
+    display: flex;
+  }
+
+  .nav-links li{
+    list-style: none;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a{
+    font-size: 16px;
+  }
+
+  /* CTA */
+  .btn{
+    margin-left: 0 !important;
+    display: block;
+    width: 90%;
+    margin: 20px auto !important;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- === SERVICES === -->
+  <section class="domotique-services">
+    <h2 data-fr="Nos Services" data-en="Our Services">Nos Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+        <h3 data-fr="Safetrack assurance" data-en="Safetrack insurance">Safetrack assurance</h3>
+        <p data-fr="Protégez vos véhicules et votre flotte avec SafeTrack Assurance. Bénéficiez d’une couverture complète en cas d’incident et suivez en temps réel l’état de vos assurances pour une gestion plus sûre et efficace." data-en="Protect your vehicles and fleet with SafeTrack Insurance. Benefit from comprehensive coverage in the event of an incident and track your insurance status in real time for safer and more efficient management.">Protégez vos véhicules et votre flotte avec SafeTrack Assurance. Bénéficiez d’une couverture complète en cas d’incident et suivez en temps réel l’état de vos assurances pour une gestion plus sûre et efficace.</p>
+      </div>
+       <div class="service-card">
+        <h3 data-fr="Programme de signalement des arrêts prolongés" data-en="Extended Stoppage Reporting Program">Programme de signalement des arrêts prolongés  </h3>
+        <p data-fr="Nous avons développé une opération qui permet de détecter et de signaler les véhicules en arrêt sur une durée donné. Ce dispositif assure une meilleure réactivité, une optimisation de la flotte et un contrôle renforcé des opérations." data-en="We have developed a system that detects and flags vehicles that are stopped for a specified period. This system ensures faster response times, optimized fleet management, and enhanced operational control.">Nous avons développé une opération qui permet de détecter et de signaler les véhicules en arrêt sur une durée donné. Ce dispositif assure une meilleure réactivité, une optimisation de la flotte et un contrôle renforcé des opérations.</p>
+      </div>
+      <div class="service-card">
+        <h3 data-fr="NameCard " data-en="NameCard ">NameCard </h3>
+        <p data-fr="Identifiez vos conducteurs facilement grâce à la NameCard. Cette solution simple et sécurisée permet d’attribuer une carte à chaque utilisateur pour un suivi clair et une meilleure gestion de flotte." data-en="Easily identify your drivers with NameCard. This simple and secure solution allows you to assign a card to each user for clear tracking and better fleet management.">Identifiez vos conducteurs facilement grâce à la NameCard. Cette solution simple et sécurisée permet d’attribuer une carte à chaque utilisateur pour un suivi clair et une meilleure gestion de flotte.</p>
+      </div>
+         <div class="service-card">
+        <h3 data-fr="Tracking standard" data-en="Standard tracking">Tracking standard</h3>
+        <p data-fr="Bloquez votre véhicule à distance grâce à l’immobilisation par géolocalisation. Une solution efficace pour prévenir les usages non autorisés et retrouver un véhicule en cas de vol." data-en="Remotely lock your vehicle using geolocation immobilization. An effective solution to prevent unauthorized use and recover a stolen vehicle.">Bloquez votre véhicule à distance grâce à l’immobilisation par géolocalisation. Une solution efficace pour prévenir les usages non autorisés et retrouver un véhicule en cas de vol.</p>
+      </div>
+         <div class="service-card">
+        <h3 data-fr="Driver ID" data-en="Driver ID">Driver ID</h3>
+        <p data-fr="Identifiez à tout moment le conducteur de vos véhicules grâce au Driver ID. Cette fonctionnalité permet de contrôler l’accès, renforcer la sécurité et assurer une meilleure traçabilité de votre flotte." data-en="Identify your vehicle drivers at any time with Driver ID. This feature allows you to control access, enhance security, and ensure better traceability of your fleet.">Identifiez à tout moment le conducteur de vos véhicules grâce au Driver ID. Cette fonctionnalité permet de contrôler l’accès, renforcer la sécurité et assurer une meilleure traçabilité de votre flotte.<p>
+      </div>
+         <div class="service-card">
+        <h3 data-fr="Contrôle de carburant" data-en="Fuel control">Contrôle de carburant</h3>
+        <p data-fr="Optimisez vos coûts grâce au contrôle de carburant. Surveillez la consommation en temps réel, détectez les anomalies et évitez les vols ou gaspillages." data-en="Optimize your costs with fuel monitoring. Track consumption in real time, detect anomalies, and prevent theft or waste.">Optimisez vos coûts grâce au contrôle de carburant. Surveillez la consommation en temps réel, détectez les anomalies et évitez les vols ou gaspillages.</p>
+      </div>
+         <div class="service-card">
+        <h3 data-fr="Limiteur de vitesse" data-en="Speed ​​limiter">Limiteur de vitesse</h3>
+        <p data-fr="Améliorez la sécurité et réduisez les risques d’accident grâce au limiteur de vitesse. Contrôlez et respectez les seuils fixés pour protéger vos conducteurs et vos véhicules." data-en="Improve safety and reduce the risk of accidents with a speed limiter. Monitor and respect the set limits to protect your drivers and vehicles.">Améliorez la sécurité et réduisez les risques d’accident grâce au limiteur de vitesse. Contrôlez et respectez les seuils fixés pour protéger vos conducteurs et vos véhicules.</p>
+      </div>
+         <div class="service-card">
+        <h3 data-fr="Dualcam" data-en="Dualcam">Dualcam</h3>
+        <p data-fr="Surveillez vos trajets en toute sécurité grâce à la DualCam. Avec ses deux caméras, enregistrez à la fois l’intérieur et l’extérieur du véhicule pour une visibilité complète et une meilleure protection." data-en="Monitor your journeys safely with DualCam. With its two cameras, record both the interior and exterior of the vehicle for complete visibility and enhanced protection.">Surveillez vos trajets en toute sécurité grâce à la DualCam. Avec ses deux caméras, enregistrez à la fois l’intérieur et l’extérieur du véhicule pour une visibilité complète et une meilleure protection.</p>
+      </div>
+         <div class="service-card">
+        <h3 data-fr="Driver a wareness" data-en="Driver a wareness">Driver a wareness</h3>
+        <p data-fr="Améliorez la sécurité de vos trajets avec le Driver Awareness. Ce système analyse la conduite, détecte la fatigue ou les comportements à risque et aide vos conducteurs à rester vigilants sur la route." data-en="Improve the safety of your journeys with Driver Awareness. This system analyzes driving, detects fatigue or risky behaviors, and helps your drivers stay alert on the road.">Améliorez la sécurité de vos trajets avec le Driver Awareness. Ce système analyse la conduite, détecte la fatigue ou les comportements à risque et aide vos conducteurs à rester vigilants sur la route.</p>
+      </div>
+       <div class="service-card">
+        <h3 data-fr="Trailer Monitoring" data-en="Trailer Monitoring">Trailer Monitoring  </h3>
+        <p data-fr="Assurez un suivi précis de vos remorques grâce au Trailer Monitoring. Surveillez leur localisation, leur utilisation et leur état en temps réel pour plus de sécurité et d’efficacité logistique." data-en="Ensure precise tracking of your trailers with Trailer Monitoring. Monitor their location, usage, and condition in real time for greater security and logistical efficiency.">Assurez un suivi précis de vos remorques grâce au Trailer Monitoring. Surveillez leur localisation, leur utilisation et leur état en temps réel pour plus de sécurité et d’efficacité logistique.</p>
+      </div>
+       <div class="service-card">
+        <h3 data-fr="Construction équipement" data-en="Construction equipment">Construction équipement</h3>
+        <p data-fr="Optimisez la gestion de vos engins de chantier avec nos solutions de suivi. Localisez vos équipements, surveillez leur performance et réduisez les pertes ou immobilisations inutiles." data-en="Optimize the management of your construction equipment with our tracking solutions. Locate your equipment, monitor its performance, and reduce unnecessary losses or downtime.">Optimisez la gestion de vos engins de chantier avec nos solutions de suivi. Localisez vos équipements, surveillez leur performance et réduisez les pertes ou immobilisations inutiles.</p>
+      </div>
+        <div class="service-card">
+        <h3 data-fr="Smart lock" data-en="Smart lock">Smart lock</h3>
+        <p data-fr="Renforcez la sécurité de vos véhicules avec le Smart Lock. Verrouillez et déverrouillez vos portes à distance, contrôlez l’accès et protégez vos actifs contre toute intrusion non autorisée." data-en="Enhance the security of your vehicles with Smart Lock. Lock and unlock your doors remotely, control access, and protect your assets from unauthorized intrusion.">Renforcez la sécurité de vos véhicules avec le Smart Lock. Verrouillez et déverrouillez vos portes à distance, contrôlez l’accès et protégez vos actifs contre toute intrusion non autorisée.</p>
+      </div>
+      <div class="service-card">
+        <h3 data-fr="Tracking sans fil" data-en="Wireless tracking">Tracking sans fil </h3>
+        <p data-fr="Simplifiez la gestion de vos véhicules avec le tracking sans fil. Installez et déployez facilement vos traceurs GPS sans câblage, tout en bénéficiant d’un suivi en temps réel fiable et précis." data-en="Simplify your vehicle management with wireless tracking. Easily install and deploy your GPS trackers without wiring, while benefiting from reliable and accurate real-time monitoring.">Simplifiez la gestion de vos véhicules avec le tracking sans fil. Installez et déployez facilement vos traceurs GPS sans câblage, tout en bénéficiant d’un suivi en temps réel fiable et précis.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<style>
+  .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+}
+</style>
+
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p>&copy; 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+  <!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+
+
+	<a href="https://wa.me/+0159088775" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" 
+       alt="Chat WhatsApp" 
+       class="whatsapp-icon">
+</a>
+
+<script>
+  // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = el.getAttribute(lang);
+    });
+  }
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+</script>
+
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+
+
+  </body>
+   </html>
+    
+  

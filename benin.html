@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Notre Présence au Bénin - Groupe LEA</title>
+  <style>
+    body { font-family: 'Roboto', sans-serif; line-height:1.6; margin:0; background:#f9f9f9; color:#333; }
+    main { max-width:1000px; margin:40px auto; padding:0 20px; }
+    h2 { color:green; margin-bottom:20px; font-family:'Montserrat', sans-serif; }
+
+    /* Hero */
+    .hero { background:url('benin.jpg') no-repeat center center/cover; height:400px; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; }
+    .hero h2 { font-size:2.5em; background:rgba(0,0,0,0.5); padding:10px 20px; border-radius:5px; }
+
+    /* Activities */
+    .activities { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+    .activity { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition:0.3s; }
+    .activity:hover { transform:translateY(-5px); box-shadow:0 6px 12px rgba(0,0,0,0.15); }
+
+    /* Timeline */
+    .timeline { position:relative; padding-left:30px; }
+    .timeline::before { content:""; position:absolute; left:15px; top:0; width:2px; height:100%; background:green; }
+    .event { position:relative; margin-bottom:30px; padding-left:20px; }
+    .event::before { content:""; position:absolute; left:-15px; top:5px; width:10px; height:10px; background:green; border-radius:50%; }
+
+    /* Footer */
+    footer { background:#333; color:#fff; text-align:center; padding:20px; }
+    footer a { color:#f2a900; margin:0 10px; }
+
+    /* =====================================
+🔥 NAVBAR RESPONSIVE FIX
+===================================== */
+
+.burger{
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2000;
+}
+
+@media screen and (max-width:768px){
+
+  body{
+    overflow-x: hidden;
+  }
+
+  .navbar{
+    padding: 15px;
+    position: relative;
+  }
+
+  .navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* LOGO */
+  .logo a{
+    gap: 8px !important;
+  }
+
+  .logo img{
+    height: 50px !important;
+  }
+
+  #logo-text{
+    font-size: 15px !important;
+
+  }
+/* BURGER */
+.burger{
+  display: block;
+  font-size: 25px;
+  position: absolute;
+  right: 100px;
+  top: 35px;
+  color: white;
+  z-index: 9999;
+}
+
+  /* MENU */
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    background: #000;
+
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.nav-active{
+    display: flex;
+  }
+
+  .nav-links li{
+    list-style: none;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a{
+    font-size: 16px;
+  }
+
+  /* CTA */
+  .btn{
+    margin-left: 0 !important;
+    display: block;
+    width: 90%;
+    margin: 20px auto !important;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+
+
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html"  class="active" data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html"   data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2 data-fr="Notre Présence au Bénin" data-en="Our Presence in Benin">Notre Présence au Bénin</h2>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section>
+      <h2 data-fr="Nos Activités" data-en="Our Activities">Nos Activités</h2>
+      <div class="activities">
+        <div class="activity">
+          <h3 data-fr="Production de Briques" data-en="Brick Production">Production de Briques</h3>
+          <p data-fr="Installation d’une usine de production et de vente de briques autobloquantes HYDRAFORM importées d’Afrique du Sud." data-en="Installation of a factory for the production and sale of HYDRAFORM interlocking bricks imported from South Africa.">Installation d’une usine de production et de vente de briques autobloquantes HYDRAFORM importées d’Afrique du Sud.</p>
+        </div>
+        <div class="activity">
+          <h3 data-fr="Technologie HYDRAFORM" data-en="HYDRAFORM Technology">Technologie HYDRAFORM</h3>
+          <p data-fr="Vulgarisation de la technologie HYDRAFORM avec la réalisation de divers ouvrages en terre stabilisée." data-en="Promoting HYDRAFORM technology through the construction of various stabilized earth structures.">Vulgarisation de la technologie HYDRAFORM avec la réalisation de divers ouvrages en terre stabilisée.</p>
+        </div>
+        <div class="activity">
+          <h3 data-fr="Géolocalisation" data-en="Geolocation">Géolocalisation</h3>
+          <p data-fr="Promotion de la géolocalisation des véhicules en partenariat avec MTN BENIN." data-en="Promoting vehicle geolocation in partnership with MTN Benin.">Promotion de la géolocalisation des véhicules en partenariat avec MTN BENIN.</p>
+        </div>
+        <div class="activity">
+          <h3 data-fr="Opérations Immobilières" data-en="Real Estate Transactions">Opérations Immobilières</h3>
+          <p data-fr="Sécurisation d’un domaine de 25 hectares pour la réalisation d’une opération immobilière prévue en 2026." data-en="Securing a 25-hectare site for a real estate development planned for 2026.">Sécurisation d’un domaine de 25 hectares pour la réalisation d’une opération immobilière prévue en 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-fr="Timeline des Projets" data-en="Project Timeline">Timeline des Projets</h2>
+      <div class="timeline">
+        <div class="event">
+          <h4 data-fr="Août 2015" data-en="August 2015">Août 2015</h4>
+          <p data-fr="Création de LEA BENIN SA et lancement de la production de briques HYDRAFORM." data-en="Creation of LEA BENIN SA and launch of HYDRAFORM brick production.">Création de LEA BENIN SA et lancement de la production de briques HYDRAFORM.</p>
+        </div>
+        <div class="event">
+          <h4 data-fr="2016-2022" data-en="2016-2022">2016-2022</h4>
+          <p data-fr="Réalisation de divers ouvrages en terre stabilisée et promotion de la géolocalisation." data-en="Construction of various stabilized earth structures and promotion of geolocation.">Réalisation de divers ouvrages en terre stabilisée et promotion de la géolocalisation.</p>
+        </div>
+        <div class="event">
+          <h4 data-fr="2026" data-en="2026">2026</h4>
+          <p data-fr="Démarrage de l’opération immobilière sur le domaine sécurisé de 25 hectares." data-en="Start of the project real estate on the secure 25-hectare estate.">Démarrage de l’opération immobilière sur le domaine sécurisé de 25 hectares.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+ 
+<style>
+  .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+}
+</style>
+
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p>&copy; 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+  <!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+
+
+	<a href="https://wa.me/+0159088775" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" 
+       alt="Chat WhatsApp" 
+       class="whatsapp-icon">
+</a>
+<script>
+  // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = el.getAttribute(lang);
+    });
+  }
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+</script>
+
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

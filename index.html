@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <title>Groupe LÉA</title>
+</head>
+<body>
+<style> 
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: 0.4s ease;
+}
+
+main {
+  padding-top: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  transition: 0.3s ease;
+  position: relative;
+}
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: rgb(21, 182, 21);
+  left: 0;
+  bottom: -6px;
+  transition: 0.4s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: rgb(21, 182, 21);
+  font-weight: bold;
+}
+
+
+
+.cta-nav {
+  background: rgb(213, 7, 7);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* whatsapp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.whatsapp-icon {
+  width: 60px;
+}
+
+/* SLIDER */
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-slide {
+  position: relative;
+}
+
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.35)
+  );
+  z-index: 1;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 5;
+  transition: 0.3s ease;
+  border-radius: 50%;
+}
+
+.carousel-btn:hover {
+  background: rgba(21,182,21,0.8);
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+.slide-caption {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  max-width: 650px;
+  color: white;
+  z-index: 2;
+}
+.slide-caption h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.slide-caption p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 600px;
+  color: rgba(255,255,255,0.85);
+}
+.cta {
+  position: absolute;
+  bottom: 120px;
+  left: 8%;
+  transform: none;
+  z-index: 2;
+  text-decoration: none;
+  background: rgb(21, 182, 21);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: 0.4s ease;
+}
+/* SERVICES */
+.servicese {
+  padding: 80px 20px;
+}
+
+.servicee-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.servicee {
+  max-width: 320px;
+  flex: 1 1 280px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.servicee::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.15),
+    transparent
+  );
+  top: 0;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.servicee:hover::before {
+  left: 0;
+}
+
+.servicee:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.servicese h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 50px;
+  font-weight: 700;
+  position: relative;
+}
+
+.servicese h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: rgb(21, 182, 21);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 10px;
+}
+.servicee h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.servicee p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+
+/* =========================
+   🔥 BURGER MENU (DEFAULT PC)
+========================= */
+.burger {
+  display: none;
+}
+
+/* =========================
+   🔥 RESPONSIVE MOBILE
+========================= */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .burger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px 0;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 12px 0;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+
+  .slide-caption {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+
+  .slide-caption h1 {
+    font-size: 26px;
+  }
+
+  .slide-caption p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .cta {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 80px;
+    padding: 12px 25px;
+  }
+}
+@media (max-width: 768px) {
+
+  .slider {
+    height: 70vh;
+  }
+
+  .carousel-slide img {
+    height: 70vh;
+  }
+}
+@media (max-width: 768px) {
+
+  .servicee-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .servicee {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+
+  footer {
+    padding: 40px 15px;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+}
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+</style>
+
+<!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+
+
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html"  data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html"  data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="slider">
+  <div class="carousel">
+    <div class="carousel-track"> 
+      <!-- Slide 1 -->
+      <div class="carousel-slide">
+        <img src="imagebtp.jpg" alt="Slide 1">
+        <div class="slide-caption">
+          <h1 data-fr="Bâtir,connecter, avancer est notre devise" data-en="Build, connect, move forward is our motto">Bâtir,connecter, avancer est notre devise</h1>
+          <p data-fr="Nous concevons et réalisons des infrastructures modernes et durables, en intégrant innovation, qualité et respect des normes pour accompagner le développement urbain."
+             data-en="We design and build modern and sustainable infrastructures, integrating innovation, quality, and standards for urban development.">
+             Nous concevons et réalisons des infrastructures modernes et durables, en intégrant innovation, qualité et respect des normes pour accompagner le développement urbain.
+          </p>
+        </div> 
+        <div><a href="btp.html" class="cta" data-fr="En savoir plus" data-en="Learn More">En savoir plus</a></div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <img src="homme-d-affaires-a-l-aide-de-son-telephone-portable.jpg" alt="Slide 2">
+        <div class="slide-caption">
+          <h1 data-fr="Geolocalisation et Monitoring" data-en="Geolocation & Monitoring">Geolocalisation et Monitoring</h1>
+          <p data-fr="Optimisez la gestion de votre flotte grâce à des solutions de géolocalisation avancées. Suivi en temps réel, réduction des coûts, sécurité renforcée et analyse des performances pour une meilleure prise de décision."
+             data-en="Optimize your fleet management with advanced geolocation solutions. Real-time tracking, cost reduction, enhanced security, and performance analysis for better decisions.">
+            Optimisez la gestion de votre flotte grâce à des solutions de géolocalisation avancées. Suivi en temps réel, réduction des coûts, sécurité renforcée et analyse des performances pour une meilleure prise de décision.
+          </p>
+        </div> 
+        <div><a href="tracking.html" class="cta" data-fr="En savoir plus" data-en="Learn More">En savoir plus</a></div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <img src="acceuil.jpg" alt="Slide 3">
+        <div class="slide-caption">
+          <h1 data-fr="La domotique au service de votre confort et de votre sécurité" data-en="Home automation for your comfort & security">La domotique au service de votre confort et de votre sécurité</h1>
+          <p data-fr="Automatisez et sécurisez vos espaces grâce à des solutions intelligentes. Contrôlez vos équipements à distance et améliorez votre confort avec des technologies innovantes adaptées à vos besoins."
+             data-en="Automate and secure your spaces with smart solutions. Control your equipment remotely and enhance your comfort with innovative technologies tailored to your needs.">
+            Automatisez et sécurisez vos espaces grâce à des solutions intelligentes. Contrôlez vos équipements à distance et améliorez votre confort avec des technologies innovantes adaptées à vos besoins.
+          </p>
+        </div>
+        <div><a href="domotique.html" class="cta" data-fr="En savoir plus" data-en="Learn More">En savoir plus</a></div>
+      </div>
+    </div>
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</header>
+
+<!-- SERVICES -->
+<section id="servicese" class="servicese">
+  <h2 data-fr="Nos Secteurs" data-en="Our Services">Nos Secteurs</h2>
+  <div class="servicee-list">
+    <div class="servicee">
+      <a href="tracking.html" style="text-decoration: none; color: inherit;">
+        <h3 data-fr="Géolocalisation et Monitoring" data-en="Geolocation & Monitoring">Géolocalisation et Monitoring</h3>
+        <p data-fr="Optimisez la gestion de vos véhicules avec des solutions de géolocalisation en temps réel et des outils de suivi performants."
+           data-en="Optimize your vehicle management with real-time geolocation solutions and powerful tracking tools.">
+          Optimisez la gestion de vos véhicules avec des solutions de géolocalisation en temps réel et des outils de suivi performants.
+        </p>
+      </a>
+    </div>
+    <div class="servicee">
+      <a href="btp.html" style="text-decoration: none; color: inherit;">
+        <h3 data-fr="BTP" data-en="Construction">BTP</h3>
+        <p data-fr="Des services innovants pour accompagner vos projets de construction, de la planification à la réalisation."
+           data-en="Innovative services to support your construction projects, from planning to execution.">
+          Des services innovants pour accompagner vos projets de construction, de la planification à la réalisation.
+        </p>
+      </a>
+    </div>
+    <div class="servicee">
+      <a href="domotique.html" style="text-decoration: none; color: inherit;">
+        <h3 data-fr="Domotique" data-en="Home Automation">Domotique</h3>
+        <p data-fr="Transformez votre espace de vie avec des systèmes intelligents pour plus de confort, de sécurité et d’économie d’énergie."
+           data-en="Transform your living space with smart systems for more comfort, security, and energy savings.">
+          Transformez votre espace de vie avec des systèmes intelligents pour plus de confort, de sécurité et d’économie d’énergie.
+        </p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p data-fr="© 2025 Groupe LEA - Fleet Management Solution (FMS)" data-en="© 2025 Groupe LEA - Fleet Management Solution (FMS)">© 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+  <!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/+0159088775" class="whatsapp-float" target="_blank" title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" alt="Chat WhatsApp" class="whatsapp-icon">
+</a>
+
+<script>
+  // ===== CAROUSEL =====
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }, 8000);
+
+  // ===== ANIMATION SERVICES =====
+  document.addEventListener("DOMContentLoaded", () => {
+    const services = document.querySelectorAll(".servicee");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          services.forEach((service, i) => {
+            setTimeout(() => {
+              service.classList.add("visible");
+            }, i * 300);
+          });
+        } else {
+          services.forEach((service) => {
+            service.classList.remove("visible");
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    const section = document.querySelector("#servicese");
+    observer.observe(section);
+  });
+
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = el.getAttribute(lang);
+    });
+  }
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+</script>
+</body>
+</html>

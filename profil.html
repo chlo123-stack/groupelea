@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV — Maurille SMITH | PDG - Groupe LEA</title>
+
+  <!-- AOS: Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:rgb(21, 182, 21);
+      --dark:#111;
+      --muted:#666;
+      --card:#fff;
+      --bg:#f5f6f8;
+      --maxw:1100px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      font-family: "Roboto", Arial, sans-serif;
+      margin:0;
+      background:var(--bg);
+      color:#222;
+      line-height:1.6;
+    }
+
+    header.top {
+      background: linear-gradient(90deg,#0f1720 0%, #1f2a36 100%);
+      color: #fff;
+      padding:48px 20px;
+      text-align:center;
+      position:relative;
+    }
+    header.top h1{
+      margin:0;
+      font-size:2rem;
+      letter-spacing:0.4px;
+    }
+    header.top p{
+      margin:10px 0 0;
+      color:#d1d5db;
+    }
+
+    .container{
+      max-width:var(--maxw);
+      margin:30px auto;
+      padding:20px;
+    }
+
+    .profile {
+      display:flex;
+      gap:24px;
+      align-items:center;
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(2,6,23,0.06);
+    }
+
+    .avatar {
+      width:180px;
+      height:180px;
+      border-radius:12px;
+      overflow:hidden;
+      flex-shrink:0;
+      background:linear-gradient(135deg,#e6e6e6,#ffffff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease-in-out;
+    }
+    .avatar:hover { transform: scale(1.05) rotate(1deg); }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .profile-info{
+      flex:1;
+    }
+    .profile-info h2{
+      margin:0 0 8px;
+      font-size:1.4rem;
+      color:var(--dark);
+    }
+    .profile-info p.role{
+      margin:0;
+      color:var(--muted);
+      font-weight:500;
+    }
+    .meta{
+      margin-top:12px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .meta span{
+      background:#f3f4f6;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:0.9rem;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:24px;
+      margin-top:26px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(2,6,23,0.04);
+    }
+
+    h3.section-title{
+      margin:0 0 12px;
+      color:var(--accent);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight:700;
+      letter-spacing:0.4px;
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .item {
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      transition: transform 0.25s ease;
+    }
+    .item:hover { transform: translateX(6px); }
+    .item .dot{
+      width:12px;
+      height:12px;
+      background:var(--accent);
+      border-radius:50%;
+      margin-top:6px;
+      flex-shrink:0;
+    }
+    .item .content{
+      flex:1;
+    }
+    .muted{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    ul.clean{
+      padding-left:18px;
+      margin:8px 0 0;
+    }
+    ul.clean li{margin:6px 0}
+
+    .side-section{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .box-compact{
+      background:#fff;
+      padding:14px;
+      border-radius:10px;
+      border-left:4px solid var(--accent);
+    }
+    .skills{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .skill-badge{
+      display:inline-block;
+      background:#f3f4f6;
+      padding:6px 10px;
+      border-radius:999px;
+      color:#111;
+      font-size:0.9rem;
+      margin:4px 6px 0 0;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top:10px;
+    }
+    .btn{
+      display:inline-block;
+      background:var(--accent);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition: all 0.25s ease;
+    }
+    .btn:hover{
+      transform: translateY(-4px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    footer.small{
+      text-align:center;
+      margin:40px 0 80px;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .avatar{width:140px;height:140px}
+    }
+    @media (max-width:480px){
+      header.top{padding:36px 12px}
+      .avatar{width:110px;height:110px}
+    }
+
+    .project-highlight{
+      padding:12px;
+      border-radius:10px;
+      background:linear-gradient(90deg,#fff,#fbfbfb);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .project-highlight:hover{
+      transform:translateY(-4px);
+      background: linear-gradient(90deg,#fffbe6,#fff);
+      box-shadow:0 6px 20px rgba(2,6,23,0.08);
+    }
+
+  </style>
+</head>
+<body>
+<!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+  <header class="top" data-aos="fade-down">
+    <h1>Maurille SMITH</h1>
+    <p data-fr="Président Directeur Général — Expertise en promotion immobilière, technologies HYDRAFORM, géolocalisation & projets énergétiques" data-en="President and CEO — Expertise in real estate development, HYDRAFORM technologies, geolocation & energy projects">Président Directeur Général — Expertise en promotion immobilière, technologies HYDRAFORM, géolocalisation & projets énergétiques</p>
+  </header>
+
+  <main class="container">
+
+    <!-- profile block -->
+    <div class="profile" data-aos="fade-up">
+      <div class="avatar">
+        <img src="directeur general.jpg" alt="Photo Maurille SMITH" onerror="this.src='https://via.placeholder.com/300x300?text=Photo+PDG'">
+      </div>
+
+      <div class="profile-info">
+        <h2>Maurille SMITH</h2>
+        <p class="role" data-fr="Fondateur & PDG — Groupe LEA" data-en="Founder & CEO — Group LEA">Fondateur & PDG — Groupe LEA</p>
+
+        <div class="meta">
+          <span data-fr="15+ ans d'expérience" data-en="15+ years of experience">15+ ans d'expérience</span>
+          <span  data-fr="Promotion Immobilière" data-en="Real Estate Development">Promotion Immobilière</span>
+          <span  data-fr="HYDRAFORM" data-en="HYDRAFORM">HYDRAFORM</span>
+          <span  data-fr="Fleet Management" data-en="Fleet Management">Fleet Management</span>
+        </div>
+
+        <div style="margin-top:12px" class="muted">
+          <p  data-fr=" Entrepreneur et expert reconnu en promotion immobilière et technologies HYDRAFORM, impliqué dans la création et la direction de plusieurs sociétés en Afrique." data-en=" Entrepreneur and recognized expert in real estate development and HYDRAFORM technologies, involved in the creation and management of several companies in Africa.">Entrepreneur et expert reconnu en promotion immobilière et technologies HYDRAFORM, impliqué dans la création et la direction de plusieurs sociétés en Afrique.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- LEFT column: CV complet -->
+      <div class="card" data-aos="fade-right">
+        <h3 class="section-title"  data-fr="Expertise & Conférences" data-en="Expertise & Conferences">Expertise & Conférences</h3>
+        <div class="timeline">
+          <div class="item">
+            <div class="dot"></div>
+            <div class="content">
+              <ul class="clean">
+                <li  data-fr="Conférence : Financement de projets immobiliers au Togo — ABI, Lomé (10 mai 2024)" data-en="Conference: Financing Real Estate Projects in Togo — ABI, Lomé (May 10, 2024)">Conférence : Financement de projets immobiliers au Togo — ABI, Lomé (10 mai 2024)</li>
+                <li  data-fr="Session ONU-HABITAT / UEMOA / ESAE : Conception de projets immobiliers résidentiels(22 au 27 avril 2024)" data-en="UN-HABITAT / UEMOA / ESAE Session: Design of Residential Real Estate Projects (April 22-27, 2024)">Session ONU-HABITAT / UEMOA / ESAE : Conception de projets immobiliers résidentiels(22 au 27 avril 2024)</li>
+                <li  data-fr="Atelier AST : Analyse de Situations de Travail & référentiel métiers-compétences Promoteurs UEMOA(31 juil. au 04 août 2023)" data-en="AST Workshop: Analysis of Work Situations & Job-Skills Framework for UEMOA Promoters (July 31 to August 4, 2023)">Atelier AST : Analyse de Situations de Travail & référentiel métiers-compétences Promoteurs UEMOA(31 juil. au 04 août 2023)</li>
+                <li  data-fr="CFLA 3ème édition — ONU-HABITAT / UEMOA / ESAE(09 au 14 oct. 2022)" data-en="CFLA 3rd edition — UN-HABITAT / UEMOA / ESAE (October 9-14, 2022)">CFLA 3ème édition — ONU-HABITAT / UEMOA / ESAE(09 au 14 oct. 2022)</li>
+                <li  data-fr="Administration de Sociétés Anonymes dans l'espace  OHADA" data-en="Administration of Public Limited Companies in the OHADA Area">Administration de Sociétés Anonymes dans l'espace  OHADA</li>
+                <li  data-fr="Expert HYDRAFORM (Bloc de terre comprimée)" data-en="HYDRAFORM Expert (Compressed Earth Block)">Expert HYDRAFORM (Bloc de terre comprimée)</li>
+                <li  data-fr="Expert opérations immobilières socio-économiques et standing" data-en="Expert in socio-economic and high-end real estate transactions">Expert opérations immobilières socio-économiques et standing</li>
+                <li data-fr="Expert UEMOA pour habitat abordable et durable" data-en="UEMOA expert for affordable and sustainable housing">Expert UEMOA pour habitat abordable et durable</li>
+              </ul>
+            </div>
+          </div>
+
+             <!-- LEFT column: CV complet -->
+      <div class="card" data-aos="fade-right">
+        <h3 class="section-title"  data-fr="Compétences & Expertises" data-en="Skills & Expertise">Compétences & Expertises</h3>
+        <div class="timeline">
+          <div class="item">
+            <div class="dot"></div>
+            <div class="content">
+              <ul class="clean">
+                <li  data-fr="Conception et mise en oeuvres de projets immobilier avec des technologics écologiques (BTCS, HYDRAFORM, Construction robotiser...)" data-en="Design and implementation of real estate projects using ecological technologies (BTCS, HYDRAFORM, robotic construction...)"> Conception et mise en oeuvres de projets immobilier avec des technologics écologiques (BTCS, HYDRAFORM, Construction robotiser...)</li>
+                <li  data-fr="Conseil et assistance pour la mise en oeuvres de projets immobilier" data-en="Advice and assistance for the implementation of real estate projects">Conseil et assistance pour la mise en oeuvres de projets immobilier</li>
+                <li  data-fr="Conseil et assistance pour le choix de mode de finance approprié pour un projet immobilier" data-en="Advice and assistance in choosing the appropriate financing method for a real estate project">Conseil et assistance pour le choix de mode de finance approprié pour un projet immobilier</li>
+                <li  data-fr="Management & Gouvernance" data-en="Management & Governance">Management & Gouvernance</li>
+              </ul>
+            </div>
+          </div>
+         
+         
+
+        <h3 class="section-title" style="margin-top:22px"  data-fr="Expériences & Créations d'entreprises" data-en="Experiences & Business Creations">Expériences & Créations d'entreprises</h3>
+        <div class="timeline">
+          <div class="item">
+            <div class="dot"></div>
+            <div class="content">
+              <p class="muted"  data-fr="Supervision de 1080 logements sociaux à LERO, direction BTRCS à SONAPI, appui-conseils à TCC Conakry" data-en="Supervision of 1080 social housing units at LERO, management of BTRCS at SONAPI, advisory support at TCC Conakry"><strong>Mai 2023 — LEAGUI SARL (LEA GUINÉE)</strong></p>
+              <p  data-fr="Supervision de 1080 logements sociaux à LERO, direction BTRCS à SONAPI, appui-conseils à TCC Conakry" data-en="Supervision of 1080 social housing units at LERO, management of BTRCS at SONAPI, advisory support at TCC Conakry">Supervision de 1080 logements sociaux à LERO, direction BTRCS à SONAPI, appui-conseils à TCC Conakry</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="dot"></div>
+            <div class="content">
+              <p class="muted"  data-fr="Fév. 2021 — LEACI SARL (LEA CÔTE D'IVOIRE)" data-en="Feb. 2021 — LEACI SARL (LEA CÔTE D'IVOIRE)"><strong>Fév. 2021 — LEACI SARL (LEA CÔTE D'IVOIRE)</strong></p>
+              <p  data-fr="Supervision de chantiers, BTCS/HYDRAFORM, garnisons militaires, complexe hôtelier Bassam, cité résidentielle Assinie" data-en="Site supervision, BTCS/HYDRAFORM, military garrisons, Bassam hotel complex, Assinie residential area">Supervision de chantiers, BTCS/HYDRAFORM, garnisons militaires, complexe hôtelier Bassam, cité résidentielle Assinie</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="dot"></div>
+            <div class="content">
+              <p class="muted"  data-fr="" data-en=""><strong>Août 2015 — LEA BENIN SA</strong></p>
+              <p  data-fr="Production & vente de BTCS, logements de standing, solutions géolocalisation MTN, solutions énergie solaire" data-en="Production & sale of BTCS, luxury housing, MTN geolocation solutions, solar energy solutions">Production & vente de BTCS, logements de standing, solutions géolocalisation MTN, solutions énergie solaire</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="dot"></div>
+            <div class="content">
+              <p class="muted"  data-fr="" data-en=""><strong>Mars 2008 — GCITT BENIN SA</strong></p>
+              <p  data-fr="Cité GCITT BETHEL (550 villas), Cœur Joie (75 villas), Belle Vie (85 villas), cité Glo-Djigbé (507 villas), partenariat HYDRAFORM" data-en="GCITT BETHEL Estate (550 villas), Cœur Joie (75 villas), Belle Vie (85 villas), Glo-Djigbé Estate (507 villas), HYDRAFORM partnership">Cité GCITT BETHEL (550 villas), Cœur Joie (75 villas), Belle Vie (85 villas), cité Glo-Djigbé (507 villas), partenariat HYDRAFORM</p>
+            </div>
+          </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    
+
+        
+
+    <div class="cta-row" data-aos="fade-up">
+      <a class="btn" data-fr="Retour à la présentation" data-en="Back to the presentation" href="apropos.html" style="background:rgb(21, 182, 21)">Retour à la présentation</a>
+    </div>
+
+   
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:900, offset:100, once:true });
+
+
+
+
+
+     // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = el.getAttribute(lang);
+    });
+  }
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+  </script>
+</body>
+</html>

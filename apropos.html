@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <title>Groupe LÉA</title>
+</head>
+<body>
+
+<!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+
+
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html" class="active"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html"  data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html"  data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+   <style>
+    header p {
+      font-size: 1.3em;
+      animation: fadeInUp 2s ease;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      color: #f2a900;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin: 10px 0 20px 20px;
+    }
+
+
+section{
+  margin-top: 200px;
+}
+  
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .values{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 26px;
+      margin-top: 2em;
+      
+    }
+  .about-hero {
+  padding: 90px 20px;
+  background: #f5f6f8;
+}
+
+.about-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.about-hero h2 {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+  color: #111;
+}
+
+/* ligne orange sous le titre */
+.about-hero h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #f2a900;
+  display: block;
+  margin: 12px auto;
+  border-radius: 10px;
+}
+
+.about-content {
+  background: white;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.about-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #333;
+  text-align: justify;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+
+  .about-hero {
+    padding: 60px 15px;
+  }
+
+  .about-hero h2 {
+    font-size: 28px;
+  }
+
+  .about-content {
+    padding: 20px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+  .card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(242,169,0,0.2), transparent);
+  transition: 0.4s;
+}
+
+.card:hover::before {
+  left: 0;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+    
+    .card i {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    .val {
+  color: #e3a60c;
+  text-align: center;
+}
+  sectione {
+      padding: 3em 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 35px;
+  padding: 40px 20px;
+}
+
+.member {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.member {
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.member.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #f2a900;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member h3 {
+  margin-top: 12px;
+  font-size: 1em;
+  color: #222;
+}
+
+.member p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.member img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+  color: black;
+  margin-bottom: 30px;
+}
+
+.logo-carousel {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 80%;
+  border: 2px solid #fff;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin-left: 150px;
+}
+.logo-carousel {
+  width: 100%;
+  margin: 40px auto;
+  overflow: hidden;
+  padding: 20px;
+  background: #111;
+  border-radius: 10px;
+}
+
+.logo-carousel-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-carousel-track img {
+  height: 100px;
+  margin: 0 30px;
+  transition: transform 0.3s;
+}
+
+.logo-carousel-track img:hover {
+  transform: scale(1.2);
+}
+
+/* Animation du défilement */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+  .cta-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-start;
+      margin-top:10px;
+    }
+    .btn{
+      margin-left: 600px;
+      background:var(--accent);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition: all 0.25s ease;
+      margin-bottom: 15px;
+    }
+  
+
+  .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+}
+  
+/* Animation Scroll */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+}
+
+.visible{
+  opacity:1 !important;
+}
+
+/* Animation Hover */
+.cv-section, .project-section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-section:hover, .project-section:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.cv-section{
+  display:block !important;
+  opacity:1;
+}
+
+/* =====================================
+🔥 NAVBAR RESPONSIVE FIX
+===================================== */
+
+.burger{
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2000;
+}
+
+@media (max-width: 768px) {
+
+  /* BURGER BUTTON */
+  .burger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+    color: white;
+  }
+
+  /* NAV BAR MOBILE */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    text-align: center;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+
+  /* ACTIVE MENU */
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  /* LOGO ADAPT */
+  .logo img {
+    height: 45px !important;
+  }
+
+  #logo-text {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* ===== GLOBAL SECTION ===== */
+  section {
+    margin-top: 100px !important;
+    padding: 20px !important;
+  }
+
+  /* ===== ABOUT HERO ===== */
+  .about-hero {
+    padding: 50px 15px;
+  }
+
+  .about-hero h2 {
+    font-size: 26px;
+  }
+
+  .about-content {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  /* ===== VALUES ===== */
+  .values-section {
+    padding: 50px 15px;
+  }
+
+  .values-section .val {
+    font-size: 24px;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  /* ===== TEAM ===== */
+  .team-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .member {
+    padding: 15px;
+  }
+
+  .member img {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* ===== LOGO CAROUSEL ===== */
+  .logo-carousel {
+    width: 95% !important;
+    margin: 30px auto !important;
+  }
+
+  .logo-carousel-track img {
+    height: 50px;
+    margin: 0 15px;
+  }
+
+  /* ===== BUTTON ===== */
+  .btn {
+    width: 90%;
+    margin: 20px auto !important;
+    display: block;
+    text-align: center;
+  }
+
+}
+  </style>
+
+  
+
+  <section data-aos="fade-up" class="cv-section about-hero">
+
+  <div class="about-container">
+
+    <h2 data-fr="Qui sommes-nous ?" data-en="Who are we ?">
+      Qui sommes-nous ?
+    </h2>
+
+    <div class="about-content">
+
+      <p data-fr="Le Groupe LÉA est une entreprise présente dans plusieurs pays d’Afrique, composé de plusieurs entités : LEA BÉNIN SA (2015), LEA CÔTE D’IVOIRE (2021), LEA GUINÉE (2023), LEA GABON (en cours) et LEA RDC (projetée). Le Groupe LÉA est invité par des professionnels expérimentés, passionnés par le développement de projets durables et innovants dans les secteurs de l’immobilier, des technologies et de l’énergie. Dans le domaine de la promotion immobilière, nous développons des cités résidentielles modernes, en utilisant des solutions innovantes comme le béton 3D et les briques HYDRAFORM. Dans le secteur des technologies, nous proposons des solutions de géolocalisation, de gestion de carburant et de domotique. Enfin, dans le domaine de l’énergie, nous facilitons l’implantation de centrales thermiques, solaires et éoliennes, ainsi que le développement de réseaux de distribution. Notre vision est de créer un avenir où la technologie et l’innovation sont au service du progrès et du développement. Notre objectif est de bâtir des infrastructures solides et durables, connecter entreprises et particuliers à des solutions intelligentes et d’avancer ensemble vers un futur plus sûr, plus efficace et plus prospère."
+
+      data-en="The LEA Group is a company present in several African countries, composed of several entities: LEA BENIN SA (2015), LEA CÔTE D’IVOIRE (2021), LEA GUINEA (2023), LEA GABON (ongoing), and LEA DRC (planned). The LEA Group is made up of experienced professionals passionate about developing sustainable and innovative projects in real estate, technology, and energy. In real estate development, we build modern residential cities using innovative solutions such as 3D concrete and HYDRAFORM bricks. In technology, we provide geolocation, fuel management, and smart home automation solutions. In energy, we support the development of thermal, solar, and wind power plants as well as distribution networks. Our vision is to create a future where technology and innovation drive progress and development. Our goal is to build strong and sustainable infrastructure, connect businesses and individuals to smart solutions, and move forward together toward a safer, more efficient, and more prosperous future.">
+
+      Le Groupe LÉA est une entreprise présente dans plusieurs pays d’Afrique, composé de plusieurs entités : LEA BÉNIN SA (2015), LEA CÔTE D’IVOIRE (2021), LEA GUINÉE (2023), LEA GABON (en cours) et LEA RDC (projetée). Le Groupe LÉA est invité par des professionnels expérimentés, passionnés par le développement de projets durables et innovants dans les secteurs de l’immobilier, des technologies et de l’énergie. Dans le domaine de la promotion immobilière, nous développons des cités résidentielles modernes, en utilisant des solutions innovantes comme le béton 3D et les briques HYDRAFORM. Dans le secteur des technologies, nous proposons des solutions de géolocalisation, de gestion de carburant et de domotique. Enfin, dans le domaine de l’énergie, nous facilitons l’implantation de centrales thermiques, solaires et éoliennes, ainsi que le développement de réseaux de distribution. Notre vision est de créer un avenir où la technologie et l’innovation sont au service du progrès et du développement. Notre objectif est de bâtir des infrastructures solides et durables, connecter entreprises et particuliers à des solutions intelligentes et d’avancer ensemble vers un futur plus sûr, plus efficace et plus prospère.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+  
+
+
+
+
+
+<sectione>
+  <h2 class="val" data-fr="Nos valeurs" data-en="Our values">Nos valeurs</h2>
+  <div class="values">
+    <div class="card">
+      <i>🎯</i>
+      <h3 data-fr="Confiance" data-en="Trust" >Confiance</h3>
+      <p data-fr="Priorité au client et professionnalisme" data-en="Customer focus and professionalism">Priorité au client et professionnalisme</p>
+    </div>
+    <div class="card">
+      <i>🤝</i>
+      <h3 data-fr="Réactivité" data-en="Reactivity">Réactivité</h3>
+      <p data-fr="Respect des engagements et sens des responsabilités" data-en="Respect for commitments and a sense of responsibility">Respect des engagements et sens des responsabilités</p>
+    </div>
+    <div class="card">
+      <i>💡</i>
+      <h3 data-fr="Innovation" data-en="Innovation">Innovation</h3>
+      <p data-fr="Qualité premium et protection de l’environnement" data-en="Premium quality and environmental protection">Qualité premium et protection de l’environnement</p>
+    </div>
+    <div class="card">
+      <i>👥</i>
+      <h3 data-fr="Esprit d’équipe" data-en="Team spirit">Esprit d’équipe</h3>
+      <p data-fr="Puissance de la collaboration" data-en="Power of collaboration">Puissance de la collaboration</p>
+    </div>
+    <div class="card">
+      <i>🏛️</i>
+      <h3 data-fr="Responsabilité" data-en="Responsability">Responsabilité</h3>
+      <p data-fr="Engagement citoyen et éthique" data-en="Civic engagement and ethics">Engagement citoyen et éthique</p>
+    </div>
+    <div class="card">
+      <i>🌍</i> 
+      <h3 data-fr="Respect" data-en="Respect">Respect</h3>
+      <p data-fr="Valorisation des femmes et des hommes" data-en="Valuing women and men">Valorisation des femmes et des hommes</p>
+    </div>
+    <div class="card">
+      <i>🚀</i> 
+      <h3 data-fr="Excellence" data-en="Excellency">Excellence</h3>
+      <p data-fr="Recherche constante de performance et qualité" data-en="Constant pursuit of performance and quality">Recherche constante de performance et qualité</p>
+    </div>
+    <div class="card">
+      <i>🔒</i> 
+      <h3 data-fr="Intégrité" data-en="Intégrity">Intégrité</h3>
+      <p data-fr="Transparence et honnêteté dans toutes nos actions" data-en="Transparency and honesty in all our actions">Transparence et honnêteté dans toutes nos actions</p>
+    </div>
+  </div>
+</sectione>
+
+
+ 
+
+
+ <section style="padding: 50px; background: #f9f9f9; font-family: Arial, sans-serif;">
+  <h2 data-fr=" Notre equipe" data-en="Our team" style="text-align: center; font-size: 2.2em; color: #f2a900; margin-bottom: 40px;">
+    Notre equipe
+  </h2>
+
+  <div class="team-container">
+    <div class="member">
+      <img src="directeur general.jpg" alt="Maurille SMITH">
+      <h3>Maurille SMITH</h3>
+      <p data-fr="PDG" data-en="CEO">PDG</p>
+    </div>
+    <div class="member">
+      <img src="general.jpg" alt="Kurt SMITH">
+      <h3>Kurt SMITH</h3>
+      <p data-fr="DG Adjoint" data-en="Deputy Director General">DG Adjoint</p>
+    </div>
+    <div class="member">
+      <img src="caliste.jpg" alt="Caliste">
+      <h3>Caliste</h3>
+      <p data-fr="Technicien" data-en="Technician">Technicien</p>
+    </div>
+    <div class="member">
+      <img src="rodolpho.jpg" alt="Rodolpho">
+      <h3>Rodolpho</h3>
+      <p data-fr="Graphiste" data-en="Graphic Designer">Graphiste</p>
+    </div>
+    <div class="member">
+      <img src="yacinte.jpg" alt="Yacinte">
+      <h3>Hyacinthe</h3>
+      <p data-fr="Technicien" data-en="Technician">Technicien</p>
+    </div>
+    <div class="member">
+      <img src="darg.jpg" alt="Cyriano">
+      <h3>Cyriano ANAGO</h3>
+      <p data-fr="Resp.Technique" data-en="Technical Manager">Resp. Technique</p>
+    </div>
+    <div class="member">
+      <img src="maurice.jpg" alt="Maurice">
+      <h3>Maurice</h3>
+      <p data-fr="Comptable" data-en="An Accountant">Comptable</p>
+    </div>
+    <div class="member">
+      <img src="ash.jpeg" alt="Ashley CODJIA">
+      <h3>Ashley Chloé</h3>
+      <p data-fr="Dévéloppeur Web" data-en="Web Developer">Développeur Web</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<h2 data-fr="Ils nous font confiance" data-en="They trust us">Ils nous font confiance</h2>
+
+<div class="logo-carousel">
+  <div class="logo-carousel-track">
+    <img src="IMG-20250916-WA0002.jpg" alt="Entreprise1">
+    <img src="IMG-20250916-WA0003.jpg" alt="Entreprise2">
+    <img src="IMG-20250916-WA0004.jpg" alt="Entreprise3">
+    <img src="IMG-20250916-WA0005.jpg" alt="Entreprise4">
+    <img src="IMG-20250916-WA0006.jpg" alt="Entreprise5">
+     <img src="IMG-20250916-WA0007.jpg" alt="Entreprise5">
+      <img src="IMG-20250916-WA0008.jpg" alt="Entreprise5">
+    <!-- Répéter pour créer un effet continu -->
+    <img src="IMG-20250916-WA0002.jpg" alt="Entreprise1">
+    <img src="IMG-20250916-WA0003.jpg" alt="Entreprise2">
+    <img src="IMG-20250916-WA0004.jpg" alt="Entreprise3">
+    <img src="IMG-20250916-WA0005.jpg" alt="Entreprise4">
+    <img src="IMG-20250916-WA0006.jpg" alt="Entreprise5">
+     <img src="IMG-20250916-WA0007.jpg" alt="Entreprise5">
+      <img src="IMG-20250916-WA0008.jpg" alt="Entreprise5">
+  </div>
+</div>
+
+
+
+    <div class="cta-row" data-aos="fade-up">
+      <a class="btn" href="profil.html" style="background:#f2a900" data-fr="Voir le profil du PDG" data-en="View CEO profile">Voir le profil du PDG</a>
+    </div>
+
+
+  
+
+  
+
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p>&copy; 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+ 
+<!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+
+
+	<a href="https://wa.me/+0159088775" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" 
+       alt="Chat WhatsApp" 
+       class="whatsapp-icon">
+</a>
+
+
+
+
+<script>
+const members = document.querySelectorAll('.member');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+members.forEach(member => observer.observe(member));
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const sections = document.querySelectorAll(".cv-section, .project-section");
+
+  sections.forEach(section => {
+
+    section.classList.add("hidden");
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+
+          entry.target.classList.remove("hidden");
+
+        }
+
+      });
+
+    }, {
+      threshold: 0.1
+    });
+
+    observer.observe(section);
+
+  });
+
+});
+
+
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+
+  // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    el.innerHTML = el.getAttribute(lang);
+  });
+}
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+</script>
+</body>
+</html>

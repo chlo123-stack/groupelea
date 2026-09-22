@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTP & Préfa — Groupe LEA</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* === RESET & FONTS === */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Roboto', sans-serif; line-height:1.6; }
+h1,h2,h3,h4,h5,h6 { font-family:'Montserrat', sans-serif; }
+
+/* === NAVBAR === */
+.navbar {
+  width:100%;
+  background-color: rgba(0,0,0,0.7) !important;
+  color:white;
+  position:fixed;
+  top:0; left:0;
+  z-index:10;
+}
+main { padding-top:100px; }
+.container { max-width:1200px; margin:0 auto; padding:15px 30px; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:10px; }
+.logo img { height:60px; }
+.nav-links { list-style:none; display:flex; gap:20px; }
+.nav-links li a { color:white; text-decoration:none; font-weight:500; transition:color 0.3s; }
+.nav-links li a:hover, .nav-links li a.active { color: rgb(21,182,21); font-weight:bold; }
+.dropdown-parent { position:relative; z-index:1000; }
+.dropdown { position:absolute; top:100%; left:0; background-color: rgba(0,0,0,0.95); list-style:none; padding:0; margin:0; min-width:180px; display:none; flex-direction:column; border-radius:5px; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+.dropdown li a { padding:10px 20px; color:white; text-decoration:none; display:block; font-size:15px; transition:background 0.3s, color 0.3s; }
+.dropdown li a:hover { background-color: rgb(21,182,21); color:white; }
+.dropdown-parent:hover .dropdown { display:flex; }
+.cta-nav { background: rgb(213,7,7); padding:10px 20px; border-radius:5px; color:white; font-weight:bold; text-decoration:none; }
+
+/* === HERO === */
+.hero-banner-img { position:relative; width:100%; height:90vh; overflow:hidden; }
+.hero-banner-img img.hero-img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.hero-banner-img::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1; }
+.hero-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; max-width:800px; padding:20px; z-index:2; border-radius:10px; }
+.hero-text h1 { font-size:3rem; margin-bottom:20px; }
+.hero-text p { font-size:1.2rem; line-height:1.6; }
+
+/* === SECTIONS === */
+section { padding:60px 20px; max-width:1100px; margin:auto; text-align:center; }
+section h2 { color:#E8112D; margin-bottom:30px; }
+p { color:#333; line-height:1.7; }
+
+/* === GRID CARDS === */
+.grid, .services-grid, .why-grid, .gallery { display:grid; gap:25px; margin-top:50px; }
+.grid, .services-grid, .why-grid { grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); }
+.card, .service-card, .why-card { background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; text-align:left; }
+.card:hover, .service-card:hover, .why-card:hover { transform:translateY(-8px); box-shadow:0 6px 15px rgba(0,0,0,0.15); }
+.card h3, .service-card h3, .why-card h3 { font-size:1.3rem; margin-bottom:15px; color:#444; }
+.card ul.clean, .service-card p, .why-card p { font-size:1rem; color:#666; }
+.gallery { grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); }
+.gallery img { width:100%; border-radius:12px; object-fit:cover; transition: transform 0.3s; }
+.gallery img:hover { transform: scale(1.05); }
+
+/* === BOUTONS === */
+.btn { display:inline-block; background:#e63946; color:#fff; padding:12px 25px; border-radius:8px; font-size:1.1rem; transition:background 0.3s; margin-top:20px; }
+.btn:hover { background:#db1b2b; }
+
+/* === WhatsApp flottant === */
+.whatsapp-float { position:fixed; bottom:20px; right:20px; z-index:100; border-radius:50%; padding:12px; transition:transform 0.3s ease; }
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-icon { width:60px; height:60px; }
+ .les{
+  color: white;
+ }
+/* === Responsive === */
+@media (max-width:768px) {
+  .whatsapp-icon { width:50px; height:50px; }
+  .whatsapp-float { padding:8px; }
+  .hero-text h1 { font-size:2rem; }
+  .nav-links { flex-direction: column; gap:5px; }
+}
+.serpent{
+  color: white;
+}
+/* =====================================
+🔥 NAVBAR RESPONSIVE FIX
+===================================== */
+
+.burger{
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2000;
+}
+
+@media screen and (max-width:768px){
+
+  body{
+    overflow-x: hidden;
+  }
+
+  .navbar{
+    padding: 15px;
+    position: relative;
+  }
+
+  .navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* LOGO */
+  .logo a{
+    gap: 8px !important;
+  }
+
+  .logo img{
+    height: 50px !important;
+  }
+
+  #logo-text{
+    font-size: 15px !important;
+
+  }
+/* BURGER */
+.burger{
+  display: block;
+  font-size: 25px;
+  position: absolute;
+  right: 100px;
+  top: 35px;
+  color: white;
+  z-index: 9999;
+}
+
+  /* MENU */
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    background: #000;
+
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.nav-active{
+    display: flex;
+  }
+
+  .nav-links li{
+    list-style: none;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a{
+    font-size: 16px;
+  }
+
+  /* CTA */
+  .btn{
+    margin-left: 0 !important;
+    display: block;
+    width: 90%;
+    margin: 20px auto !important;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+ <!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese"  class="active" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html" data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html"  data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-banner-img">
+  <img src="imagebtp.jpg" alt="Bannière Groupe LÉA" class="hero-img">
+  <div class="hero-text">
+    <h1 data-fr="Bâtir, connecter, avancer est notre devise" data-en="Building, connecting, moving forward is our motto"> Bâtir, connecter, avancer est notre devise</h1>
+    <p  data-fr="Chez Groupe LEA, nous croyons au pouvoir de la connexion, de la construction durable et du progrès." data-en="At Groupe LEA, we believe in the power of connection, sustainable building and progress."class="les">Chez Groupe LEA, nous croyons au pouvoir de la connexion, de la construction durable et du progrès.</p>
+  </div>
+</div>
+
+<main>
+<!-- Présentation Groupe BTP -->
+<section class="domotique-services">
+  <h2 data-fr="Nos Domaines d’Intervention" data-en="Our Areas of Expertise">Nos Domaines d’Intervention</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3 data-fr="🏗️ Travaux publics" data-en="🏗️ Public Works">🏗️ Travaux publics</h3>
+      <p data-fr="Conception et réalisation d’infrastructures modernes et durables." data-en="Design and construction of modern and sustainable infrastructure.">Conception et réalisation d’infrastructures modernes et durables.</p>
+    </div>
+    <div class="service-card">
+      <h3 data-fr="🏠 Rénovation" data-en="🏠 Renovation">🏠 Rénovation</h3>
+      <p data-fr="Modernisation et réhabilitation de bâtiments existants." data-en="Modernization and rehabilitation of existing buildings.">Modernisation et réhabilitation de bâtiments existants.</p>
+    </div>
+    <div class="service-card">
+      <h3 data-fr="🌳 Aménagement extérieur" data-en="🌳 Outdoor landscaping">🌳 Aménagement extérieur</h3>
+      <p data-fr="Création d’espaces extérieurs harmonieux et fonctionnels." data-en="Creating harmonious and functional outdoor spaces.">Création d’espaces extérieurs harmonieux et fonctionnels.</p>
+    </div>
+    <div class="service-card">
+      <h3 data-fr="🧱 Briques HYDRAFORM" data-en="🧱 HYDRAFORM Bricks">🧱 Briques HYDRAFORM</h3>
+      <p data-fr="Production et vente de briques écologiques pour une construction durable." data-en="Production and sale of ecological bricks for sustainable construction.">Production et vente de briques écologiques pour une construction durable.</p>
+    </div>
+    <div class="service-card">
+      <h3 data-fr="⚡ Installation technique" data-en="⚡ Technical Installation">⚡ Installation technique</h3>
+      <p data-fr="Électricité, plomberie, climatisation et systèmes intégrés." data-en="Electricity, plumbing, air conditioning and integrated systems.">Électricité, plomberie, climatisation et systèmes intégrés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pourquoi choisir nos BTP -->
+<section class="btp-why">
+  <h2 data-fr="Pourquoi choisir nos services BTP ?" data-en="Why choose our construction services?">Pourquoi choisir nos services BTP ?</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3 data-fr="👷‍♂️ Équipe qualifiée" data-en="👷‍♂️ Qualified Team">👷‍♂️ Équipe qualifiée</h3>
+      <p data-fr="Des ingénieurs et techniciens expérimentés qui garantissent la qualité de chaque projet." data-en="Experienced engineers and technicians who guarantee the quality of every project.">Des ingénieurs et techniciens expérimentés qui garantissent la qualité de chaque projet.</p>
+    </div>
+    <div class="why-card">
+      <h3 data-fr="🌍 Matériaux naturels" data-en="🌍 Natural materials">🌍 Matériaux naturels</h3>
+      <p data-fr="Utilisation de ressources durables et respectueuses de l’environnement." data-en="Use of sustainable and environmentally friendly resources.">Utilisation de ressources durables et respectueuses de l’environnement.</p>
+    </div>
+    <div class="why-card">
+      <h3 data-fr="🧱 Expertise locale" data-en="🧱 Local expertise">🧱 Expertise locale</h3>
+      <p data-fr="Une connaissance approfondie des normes et besoins en Afrique de l’Ouest." data-en="A thorough knowledge of standards and needs in West Africa.">Une connaissance approfondie des normes et besoins en Afrique de l’Ouest.</p>
+    </div>
+    <div class="why-card">
+      <h3 data-fr="⏱️ Respect des délais" data-en="⏱️ Respect for deadlines">⏱️ Respect des délais</h3>
+      <p data-fr="Des chantiers livrés à temps et conformes aux attentes des clients." data-en="Projects delivered on time and in accordance with customer expectations.">Des chantiers livrés à temps et conformes aux attentes des clients.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION HYDRAFORM / Préfa -->
+   <div class="tout" style="background:url('cote1.jpg') no-repeat center center/cover; height:400px; display:flex; align-items:center; justify-content:center; color: white;">
+<section class="intro">
+    <h2 data-fr="Notre technologie HYDRAFORM" data-en="Our HYDRAFORM technology" class="serpent">Notre technologie HYDRAFORM</h2>
+  <p data-fr="HYDRAFORM est une technologie de blocs de terre comprimée (BTCS) qui garantit des constructions rapides, solides et écologiques. Elle permet de construire tout type de bâtiments : logements sociaux, villas, complexes hôteliers et infrastructures publiques" data-en="HYDRAFORM is a compressed earth block (CEB) technology that guarantees fast, strong, and environmentally friendly construction. It allows for the construction of all types of buildings: social housing, villas, hotel complexes, and public infrastructure." class="serpent">HYDRAFORM est une technologie de blocs de terre comprimée (BTCS) qui garantit des constructions rapides, solides et écologiques. Elle permet de construire tout type de bâtiments : logements sociaux, villas, complexes hôteliers et infrastructures publiques.</p>
+</section>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3 data-fr="Construction & Utilisation" data-en="Construction & Use">Construction & Utilisation</h3>
+    <ul class="clean">
+      <li data-fr="Briques en terre compressée locale BTCS" data-en="Compressed earth bricks (CEBs)">Briques en terre compressée locale BTCS</li>
+      <li data-fr="Idéal pour logements sociaux et bâtiments de standing" data-en="Ideal for social housing and luxury buildings">Idéal pour logements sociaux et bâtiments de standing</li>
+      <li data-fr="Construction rapide, économique et résistante" data-en="Fast, economical and durable construction">Construction rapide, économique et résistante</li>
+      <li data-fr="Adaptable pour villas, complexes hôteliers et infrastructures publiques" data-en="Suitable for villas, hotel complexes and public infrastructure">Adaptable pour villas, complexes hôteliers et infrastructures publiques</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 data-fr="Avantages pour les clients" data-en="Benefits for customers">Avantages pour les clients</h3>
+    <ul class="clean">
+      <li data-fr="Durabilité et résistance aux intempéries" data-en="Durability and weather resistance">Durabilité et résistance aux intempéries</li>
+      <li data-fr="Réduction des coûts de construction" data-en="Reduction of construction costs">Réduction des coûts de construction</li>
+      <li data-fr="Écologique et faible empreinte carbone" data-en="Environmentally friendly and low carbon footprint">Écologique et faible empreinte carbone</li>
+      <li data-fr="Optimisation du temps et des matériaux" data-en="Optimizing time and materials">Optimisation du temps et des matériaux</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 data-fr="Suivi & qualité" data-en="Monitoring and quality">Suivi & qualité</h3>
+    <ul class="clean">
+      <li data-fr="Gestion de chantiers via Fleet Management" data-en="Construction site management via Fleet Management">Gestion de chantiers via Fleet Management</li>
+      <li data-fr="Suivi en temps réel de la production" data-en="Real-time production monitoring">Suivi en temps réel de la production</li>
+      <li data-fr="Contrôle qualité à chaque étape" data-en="Quality control at every stage">Contrôle qualité à chaque étape</li>
+      <li data-fr="Reporting et optimisation continue" data-en="Reporting and continuous optimization">Reporting et optimisation continue</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 data-fr="Applications" data-en="Applications">Applications</h3>
+    <ul class="clean">
+      <li data-fr="Logements sociaux et économiques" data-en="Social and affordable housing">Logements sociaux et économiques</li>
+      <li data-fr="Villas et résidences de standing" data-en="Luxury villas and residences">Villas et résidences de standing</li>
+      <li data-fr="Complexes hôteliers et infrastructures publiques" data-en="Hotel complexes and public infrastructure">Complexes hôteliers et infrastructures publiques</li>
+      <li data-fr="Urbanisme et relogement durable" data-en="Urban planning and sustainable relocation">Urbanisme et relogement durable</li>
+    </ul>
+  </div>
+</div>
+ 
+
+
+
+
+<!-- Processus de travail -->
+<section>
+  <h2 data-fr="Processus de travail" data-en="Work process">Processus de travail</h2>
+  <div class="carousel-wrapper" style="position:relative; background:#4c4949; color:white; padding:2em; border-radius:10px; overflow:hidden;">
+    <div data-fr="①Etude et conception" data-en="①Study and design" id="carousel-text" style="font-size:1.2em;">① Etude et conception</div>
+  </div>
+</section>
+
+
+
+<!-- WhatsApp -->
+<a href="https://wa.me/+0159088775" class="whatsapp-float" target="_blank" title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" alt="Chat WhatsApp" class="whatsapp-icon">
+</a>
+
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p class="les">&copy; 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+ 
+<!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+<script>
+// Carousel Processus de travail
+
+const stepsFR = ["① Etude et conception","② Planification","③ Réalisation","④ Contrôle de qualité","⑤ Livraison du projet"];
+const stepsEN = ["① Study and design","② Planning","③ Execution","④ Quality control","⑤ Project delivery"];
+
+let currentLang = "fr"; // langue par défaut
+let index = 0;
+
+const carouselText = document.getElementById('carousel-text');
+
+function getSteps() {
+  return currentLang === "fr" ? stepsFR : stepsEN;
+}
+
+setInterval(() => {
+  const steps = getSteps();
+
+  index = (index + 1) % steps.length;
+  carouselText.style.opacity = 0;
+
+  setTimeout(() => {
+    carouselText.textContent = steps[index];
+    carouselText.style.opacity = 1;
+  },250);
+
+},3000);
+
+// 🔥 LIEN AVEC TES BOUTONS LANGUE
+document.getElementById('lang-fr').addEventListener('click', () => {
+  currentLang = "fr";
+});
+
+document.getElementById('lang-en').addEventListener('click', () => {
+  currentLang = "en";
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const btnFR = document.getElementById('lang-fr');
+    const btnEN = document.getElementById('lang-en');
+
+    function switchLang(lang) {
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        const text = el.getAttribute(lang);
+
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          el.placeholder = text;
+        } else {
+          el.textContent = text;
+        }
+      });
+    }
+
+    btnFR.addEventListener('click', () => switchLang('data-fr'));
+    btnEN.addEventListener('click', () => switchLang('data-en'));
+
+  });
+</script>
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+
+
+</main>
+</body>
+</html>

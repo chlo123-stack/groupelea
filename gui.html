@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Notre Présence en Guinée - Groupe LEA</title>
+  <style>
+    body { font-family: 'Roboto', sans-serif; line-height:1.6; margin:0; background:#f9f9f9; color:#333; }
+    main { max-width:1000px; margin:40px auto; padding:0 20px; }
+    h2 { color:red; margin-bottom:20px; font-family:'Montserrat', sans-serif; }
+
+    /* Hero */
+    .hero { background:url('guinée.jpg') no-repeat center center/cover;; height:400px; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; }
+    .hero h2 { font-size:2.5em; background:rgba(0,0,0,0.5); padding:10px 20px; border-radius:5px; }
+
+    /* Activities */
+    .activities { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+    .activity { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition:0.3s; }
+    .activity:hover { transform:translateY(-5px); box-shadow:0 6px 12px rgba(0,0,0,0.15); }
+
+    /* Timeline */
+    .timeline { position:relative; padding-left:30px; }
+    .timeline::before { content:""; position:absolute; left:15px; top:0; width:2px; height:100%; background:red; }
+    .event { position:relative; margin-bottom:30px; padding-left:20px; }
+    .event::before { content:""; position:absolute; left:-15px; top:5px; width:10px; height:10px; background:red; border-radius:50%; }
+
+    /* Footer */
+    footer { background:#333; color:#fff; text-align:center; padding:20px; }
+    footer a { color:#f2a900; margin:0 10px; }
+    /* =====================================
+🔥 NAVBAR RESPONSIVE FIX
+===================================== */
+
+.burger{
+  display: none;
+  cursor: pointer;
+  color: white;
+  z-index: 2000;
+}
+
+@media screen and (max-width:768px){
+
+  body{
+    overflow-x: hidden;
+  }
+
+  .navbar{
+    padding: 15px;
+    position: relative;
+  }
+
+  .navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* LOGO */
+  .logo a{
+    gap: 8px !important;
+  }
+
+  .logo img{
+    height: 50px !important;
+  }
+
+  #logo-text{
+    font-size: 15px !important;
+
+  }
+/* BURGER */
+.burger{
+  display: block;
+  font-size: 25px;
+  position: absolute;
+  right: 100px;
+  top: 35px;
+  color: white;
+  z-index: 9999;
+}
+
+  /* MENU */
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    background: #000;
+
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.nav-active{
+    display: flex;
+  }
+
+  .nav-links li{
+    list-style: none;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a{
+    font-size: 16px;
+  }
+
+  /* CTA */
+  .btn{
+    margin-left: 0 !important;
+    display: block;
+    width: 90%;
+    margin: 20px auto !important;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- SELECTEUR DE LANGUE -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 9999;">
+  <button id="lang-fr" style="margin-right:5px;">FR</button>
+  <button id="lang-en">EN</button>
+</div>
+
+  
+
+<nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="ChatGPT Image 15 juil. 2025, 10_45_45.png" alt="Logo LÉA BENIN" style="height: 80px;">
+        <span id="logo-text" style="font-size: 20px; font-weight: bold; color:white;">GROUPE LEA</span>
+      </a>
+    </div>
+
+    <!-- 🔥 BURGER -->
+    <div class="burger">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+      <li><a href="apropos.html"  data-fr="A propos" data-en="About">A propos</a></li>  
+      <li><a href="index.html#servicese" data-fr="Nos secteurs" data-en="Our Services">Nos secteurs</a></li>
+      <li><a href="presence.html"  class="active"data-fr="Notre présence" data-en="Our Presence">Notre présence</a></li>
+      <li><a href="realisation.html"  data-fr="Realisations" data-en="Achievements">Realisations</a></li>
+      <li><a href="contact.html" class="cta-nav" data-fr="Contactez-nous" data-en="Contact Us">Contactez-nous</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2 data-fr="Notre Présence en Guinée" data-en="Our Presence in Guinea">Notre Présence en Guinée</h2>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section>
+      <h2 data-fr="Nos Activités" data-en="Our Activities">Nos Activités</h2>
+      <div class="activities">
+        <div class="activity">
+          <h3 data-fr="Logements SONAPI" data-en="SONAPI Housing">Logements SONAPI</h3>
+          <p data-fr="Coordination d’une opération immobilière de 1.085 logements dans la mine de SMD à Lero pour le compte de la SONAPI." data-en="Coordination of a real estate project for 1,085 housing units in the SMD mine in Lero on behalf of SONAPI.">Coordination d’une opération immobilière de 1.085 logements dans la mine de SMD à Lero pour le compte de la SONAPI.</p>
+        </div>
+        <div class="activity">
+          <h3 data-fr="Cité Administrative de Koloma" data-en="Koloma Administrative City">Cité Administrative de Koloma</h3>
+          <p data-fr="Administration et suivi du projet de construction de 12 immeubles R+7 et 2 parkings R+2." data-en="Administration and monitoring of the construction project for 12 seven-story buildings and two two-story parking garages.">Administration et suivi du projet de construction de 12 immeubles R+7 et 2 parkings R+2.</p>
+        </div>
+        <div class="activity">
+          <h3 data-fr="Projets Immobiliers Futurs" data-en="Future Real Estate Projects">Projets Immobiliers Futurs</h3>
+          <p data-fr="Études techniques et négociations pour plus de 2.000 logements à Wonkifon, début des travaux en 2026." data-en="Technical studies and negotiations for more than 2,000 housing units in Wonkifon, construction to begin in 2026.">Études techniques et négociations pour plus de 2.000 logements à Wonkifon, début des travaux en 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-fr="Timeline des Projets" data-en="Project Timeline">Timeline des Projets</h2>
+      <div class="timeline">
+        <div class="event">
+          <h4 data-fr="Avril 2023" data-en="April 2023">Avril 2023</h4>
+          <p data-fr="Création de LEAGUI et déploiement de l’équipe d’ingénieurs pour la gestion des projets immobiliers." data-en="Creation of LEAGUI and deployment of the engineering team for real estate project management.">Création de LEAGUI et déploiement de l’équipe d’ingénieurs pour la gestion des projets immobiliers.</p>
+        </div>
+        <div class="event">
+          <h4 data-fr="2023-2025" data-en="2023-2025">2023-2025</h4>
+          <p data-fr="Administration et suivi du projet de la cité administrative de Koloma." data-en="Administration and monitoring of the Koloma administrative center project.">Administration et suivi du projet de la cité administrative de Koloma.</p>
+        </div>
+        <div class="event">
+          <h4 data-fr="2026" data-en="2026">2026</h4>
+          <p data-fr="Démarrage du projet immobilier de 2.000 logements à Wonkifon." data-en="Start of the 2,000-unit housing project in Wonkifon.">Démarrage du projet immobilier de 2.000 logements à Wonkifon.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<style>
+  .whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+}
+</style>
+
+<!-- FOOTER -->
+<footer style="background-color: #524d4d; color: white; text-align: center; padding: 20px 10px;">
+  <p>&copy; 2025 Groupe LEA - Fleet Management Solution (FMS)</p>
+  
+  <!-- Réseaux sociaux -->
+  <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.facebook.com/profile.php?id=61573183150543" target="_blank" style="margin: 0 8px;">
+      <img src="communication.png" alt="Facebook" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.tiktok.com/@leabeninsa?lang=en" target="_blank" style="margin: 0 8px;">
+      <img src="tiktok.png" alt="TikTok" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.instagram.com/groupe_lea_benin/#" target="_blank" style="margin: 0 8px;">
+      <img src="social.png" alt="Instagram" style="width:30px; height:30px;">
+    </a>
+    <a href="https://twitter.com" target="_blank" style="margin: 0 8px;">
+      <img src="twitter.png" alt="Twitter" style="width:30px; height:30px;">
+    </a>
+    <a href="https://www.linkedin.com/company/group-lea/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BU%2B8f4K6iQCa3StEDoHhdMg%3D%3D" target="_blank" style="margin: 0 8px;">
+      <img src="linkedin.png" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+  </div>
+</footer>
+
+
+
+	<a href="https://wa.me/+0159088775" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Discuter sur WhatsApp">
+  <img src="communication_17424810.png" 
+       alt="Chat WhatsApp" 
+       class="whatsapp-icon">
+</a>
+
+
+<script>
+  // ===== SWITCH LANGUE =====
+  const btnFR = document.getElementById('lang-fr');
+  const btnEN = document.getElementById('lang-en');
+
+  function switchLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = el.getAttribute(lang);
+    });
+  }
+
+  btnFR.addEventListener('click', () => switchLang('data-fr'));
+  btnEN.addEventListener('click', () => switchLang('data-en'));
+</script>
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+
+</body>
+</html>
